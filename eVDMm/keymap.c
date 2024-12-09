@@ -1025,7 +1025,7 @@ void dance_26_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[26].step = dance_step(state);
     switch (dance_state[26].step) {
         case SINGLE_TAP: layer_move(1); break;
-        case DOUBLE_TAP: register_code16(KC_M); break;
+        case DOUBLE_TAP: register_code16(QK_LOCK); break;
         case DOUBLE_SINGLE_TAP: layer_move(1); break;
     }
 }
@@ -1033,7 +1033,7 @@ void dance_26_finished(tap_dance_state_t *state, void *user_data) {
 void dance_26_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[26].step) {
-        case DOUBLE_TAP: unregister_code16(KC_M); break;
+        case DOUBLE_TAP: unregister_code16(QK_LOCK); break;
     }
     dance_state[26].step = 0;
 }
