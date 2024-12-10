@@ -97,9 +97,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 const uint16_t PROGMEM combo0[] = { KC_RIGHT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM combo1[] = { KC_LEFT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, TG(3)),
+    COMBO(combo0, TO(3)),
+    COMBO(combo1, TO(0)),
 };
 
 
