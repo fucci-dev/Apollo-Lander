@@ -89,8 +89,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_WWW_BACK
   ),
   [3] = LAYOUT_moonlander(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_HOME,        KC_TRANSPARENT, TD(DANCE_45),   TD(DANCE_46),   TD(DANCE_47),   KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_I,           KC_O,           KC_P,           KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_HOME,        KC_TRANSPARENT, TD(DANCE_44),   TD(DANCE_45),   TD(DANCE_46),   KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 QK_LOCK, KC_I,           KC_O,           KC_P,           KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       KC_TRANSPARENT, KC_BSLS,        
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_M,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RIGHT_SHIFT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_B,           KC_DOWN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -1042,18 +1042,16 @@ void on_dance_26(tap_dance_state_t *state, void *user_data) {
 void dance_26_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[26].step = dance_step(state);
     switch (dance_state[26].step) {
-        case SINGLE_TAP: register_code16(KC_0); break;
-        case DOUBLE_TAP: register_code16(KC_1); break;
-        case DOUBLE_SINGLE_TAP: tap_code16(KC_0); register_code16(KC_0);
+        case SINGLE_TAP: layer_move(1); break;
+        case DOUBLE_TAP: register_code16(QK_LOCK); break;
+        case DOUBLE_SINGLE_TAP: layer_move(1); break;
     }
 }
 
 void dance_26_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[26].step) {
-        case SINGLE_TAP: unregister_code16(KC_0); break;
-        case DOUBLE_TAP: unregister_code16(KC_1); break;
-        case DOUBLE_SINGLE_TAP: unregister_code16(KC_0); break;
+        case DOUBLE_TAP: unregister_code16(QK_LOCK); break;
     }
     dance_state[26].step = 0;
 }
