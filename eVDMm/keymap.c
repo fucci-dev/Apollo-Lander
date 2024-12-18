@@ -1040,7 +1040,6 @@ void dance_26_reset(tap_dance_state_t *state, void *user_data) {
     switch (dance_state[26].step) {
         case DOUBLE_TAP: unregister_code16(QK_LOCK); break;
         case SINGLE_TAP: unregister_code16(KC_9); break;
-        case DOUBLE_TAP: unregister_code16(KC_2); break;
         case DOUBLE_SINGLE_TAP: unregister_code16(KC_9); break;
     }
     dance_state[26].step = 0;
