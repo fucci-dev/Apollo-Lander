@@ -900,7 +900,7 @@ void dance_22_finished(tap_dance_state_t *state, void *user_data) {
     dance_state[22].step = dance_step(state);
     switch (dance_state[22].step) {
         case SINGLE_HOLD: register_code16(KC_LEFT_ALT); break;
-        case DOUBLE_HOLD: register_code16(LALT(LCTL(LGUI(LSFT(KC_ESCAPE))))); break;
+        case DOUBLE_HOLD: register_code16(LALT(LCTL(LGUI(KC_LEFT_SHIFT)))); break;
     }
 }
 
