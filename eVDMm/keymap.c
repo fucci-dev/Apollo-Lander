@@ -908,7 +908,7 @@ void dance_22_reset(tap_dance_state_t *state, void *user_data) {
     wait_ms(10);
     switch (dance_state[22].step) {
         case SINGLE_HOLD: unregister_code16(KC_LEFT_ALT); break;
-        case DOUBLE_HOLD: unregister_code16(LALT(LCTL(LGUI(LSFT(KC_ESCAPE))))); break;
+        case DOUBLE_HOLD: unregister_code16(LALT(LCTL(LGUI(KC_LEFT_SHIFT)))); break;
     }
     dance_state[22].step = 0;
 }
