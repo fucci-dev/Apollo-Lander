@@ -269,7 +269,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-      SEND_STRING(SS_RCTL(SS_TAP(X_RIGHT) SS_DELAY(10) SS_TAP(X_DOWN) SS_DELAY(10) SS_TAP(X_UP) SS_DELAY(10) SS_TAP(X_RIGHT) SS_DELAY(10) SS_TAP(X_DOWN)));
+      SEND_STRING(SS_DOWN(X_LCTRL) (SS_TAP(X_RIGHT) SS_DELAY(10) SS_TAP(X_DOWN) SS_DELAY(10) SS_TAP(X_UP) SS_DELAY(10) SS_TAP(X_RIGHT) SS_DELAY(10) SS_TAP(X_DOWN) SS_UP(X_LCTRL) );
     }
     break;
     case ST_MACRO_7:
