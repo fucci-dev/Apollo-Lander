@@ -4,7 +4,7 @@
 */
 
 #undef DEBOUNCE
-#define DEBOUNCE 3
+#define DEBOUNCE 2
 
 #undef TAPPING_TERM
 #define TAPPING_TERM 145
@@ -16,7 +16,7 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define CAPS_LOCK_STATUS
-#define SERIAL_NUMBER "eVDMm/YArVa"
+#define SERIAL_NUMBER "eVDMm/VJxmJ"
 #define LAYER_STATE_8BIT
 #define COMBO_COUNT 2
 
