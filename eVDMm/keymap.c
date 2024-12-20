@@ -32,12 +32,13 @@ enum custom_keycodes {
   HD_QUASAR_CANNON,
   HD_JUMP_PACK,
   HD_REINFORCE,
+  ST_MACRO_23,
   ST_MACRO_24,
   ST_MACRO_25,
   ST_MACRO_26,
   ST_MACRO_27,
   ST_MACRO_28,
-  ST_MACRO_29,
+  ST_MACRO_39,
   ST_MACRO_30,
   ST_MACRO_31,
   ST_MACRO_32,
@@ -239,7 +240,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo23, KC_TRANSPARENT),
     COMBO(combo24, HD_QUASAR_CANNON),
     COMBO(combo25, HD_JUMP_PACK),
-    COMBO(combo26, KC_TRANSPARENT),
+    COMBO(combo26, HD_REINFORCE),
 
 };
 
@@ -404,6 +405,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case HD_JUMP_PACK:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP));
+    }
+    case HD_REINFORCE:
+    if (record->event.pressed) {
+        SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP));
     }
     break;
     case ST_MACRO_23:
