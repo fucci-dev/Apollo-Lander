@@ -8,30 +8,30 @@ enum custom_keycodes {
   HSV_0_245_245,
   HSV_74_255_206,
   HSV_152_255_255,
-  ST_MACRO_0,
-  ST_MACRO_1,
-  ST_MACRO_2,
-  ST_MACRO_3,
-  ST_MACRO_4,
-  ST_MACRO_5,
-  ST_MACRO_6,
-  ST_MACRO_7,
-  ST_MACRO_8,
-  ST_MACRO_9,
-  ST_MACRO_10,
-  ST_MACRO_11,
+  HD_120_MM,
+  HD_380_MM,
+  HD_EAGLE_500,
+  HD_EAGLE_NAPALM,
+  HD_EACLE_CLUSTER,
+  HD_EAGLE_110_PODS,
+  HD_ORC_STRIKE,
+  HD_ORB_LASER,
+  HD_ORB_WALKER,
+  HD_EAGLE_STRIKE,
+  HD_ROCKET_SENTRY,
+  HD_SEAF_ART,
   ST_MACRO_12,
-  ST_MACRO_13,
-  ST_MACRO_14,
-  ST_MACRO_15,
-  ST_MACRO_16,
-  ST_MACRO_17,
-  ST_MACRO_18,
-  ST_MACRO_19,
-  ST_MACRO_20,
-  ST_MACRO_21,
-  ST_MACRO_22,
-  ST_MACRO_23,
+  HD_ARC_THROWER,
+  HD_AMR_RIFLE,
+  HD_GATLING_SENTRY,
+  HD_GUARD_DOG,
+  HD_GUARD_ROVER,
+  HD_HELL_BOMB,
+  HD_TESLA_TOWER,
+  HD_ORBITAL_EMP,
+  HD_QUASAR_CANNON,
+  HD_JUMP_PACK,
+  HD_REINFORCE,
   ST_MACRO_24,
   ST_MACRO_25,
   ST_MACRO_26,
@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_AT,          KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_H,                                                                           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       KC_TRANSPARENT, KC_BSLS,        
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_M,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RIGHT_SHIFT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_B,           KC_DOWN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    ST_MACRO_23,    KC_TRANSPARENT, KC_TRANSPARENT,                 KC_LEFT_ALT,    TD(DANCE_49),   KC_SPACE
+    KC_TRANSPARENT,    KC_TRANSPARENT, KC_TRANSPARENT,                 KC_LEFT_ALT,    TD(DANCE_49),   KC_SPACE
   ),
   [4] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -187,8 +187,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 const uint16_t PROGMEM combo0[] = { KC_RIGHT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_LEFT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
-const uint16_t PROGMEM combo2[] = { KC_A, KC_S, COMBO_END};
-const uint16_t PROGMEM combo3[] = { KC_A, KC_C, COMBO_END};
+const uint16_t PROGMEM callAMR[] = { KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM callAutocannon[] = { KC_A, KC_C, COMBO_END};
 const uint16_t PROGMEM combo4[] = { KC_AT, KC_1, COMBO_END};
 const uint16_t PROGMEM combo5[] = { KC_AT, KC_2, COMBO_END};
 const uint16_t PROGMEM combo6[] = { KC_E, KC_5, COMBO_END};
@@ -215,30 +215,31 @@ const uint16_t PROGMEM combo25[] = { KC_H, KC_B, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TO(3)),
     COMBO(combo1, TO(0)),
-    COMBO(combo2, ST_MACRO_14),
-    COMBO(combo3, ST_MACRO_1),
-    COMBO(combo4, ST_MACRO_0),
-    COMBO(combo5, ST_MACRO_1),
-    COMBO(combo6, ST_MACRO_2),
-    COMBO(combo7, ST_MACRO_9),
-    COMBO(combo8, ST_MACRO_10),
-    COMBO(combo9, ST_MACRO_4),
-    COMBO(combo10, ST_MACRO_3),
-    COMBO(combo11, ST_MACRO_5),
-    COMBO(combo12, ST_MACRO_6),
-    COMBO(combo13, ST_MACRO_7),
+    COMBO(callAMR, HD_AMR_RIFLE),
+    COMBO(callAutocannon, ST_MACRO_1),
+    COMBO(combo4, HD_120_MM),
+    COMBO(combo5, HD_120_MM),
+    COMBO(combo6, HD_EAGLE_500),
+    COMBO(combo7, HD_EAGLE_STRIKE),
+    COMBO(combo8, HD_ROCKET_SENTRY),
+    COMBO(combo9, HD_EAGLE_NAPALM),
+    COMBO(combo10, HD_EACLE_CLUSTER),
+    COMBO(combo11, HD_EAGLE_110_PODS),
+    COMBO(combo12, HD_ORC_STRIKE),
+    COMBO(combo13, HD_ORB_LASER),
     COMBO(combo14, ST_MACRO_12),
-    COMBO(combo15, ST_MACRO_8),
-    COMBO(combo16, ST_MACRO_14),
-    COMBO(combo17, ST_MACRO_15),
-    COMBO(combo18, ST_MACRO_16),
-    COMBO(combo19, ST_MACRO_17),
-    COMBO(combo20, ST_MACRO_18),
-    COMBO(combo21, ST_MACRO_19),
-    COMBO(combo22, ST_MACRO_20),
+    COMBO(combo15, HD_ORB_WALKER),
+    COMBO(combo16, HD_AMR_RIFLE),
+    COMBO(combo17, HD_GATLING_SENTRY),
+    COMBO(combo18, HD_GUARD_DOG),
+    COMBO(combo19, HD_GUARD_ROVER),
+    COMBO(combo20, SHD_HELL_BOMB,
+    COMBO(combo21, HD_TESLA_TOWER),
+    COMBO(combo22, HD_ORBITAL_EMP),
     COMBO(combo23, KC_TRANSPARENT),
-    COMBO(combo24, ST_MACRO_21),
-    COMBO(combo25, ST_MACRO_22),
+    COMBO(combo24, HD_QUASAR_CANNON),
+    COMBO(combo25, HD_JUMP_PACK),
+
 };
 
 extern rgb_config_t rgb_matrix_config;
@@ -289,62 +290,62 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case ST_MACRO_0:
+    case HD_120_MM:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
-    case ST_MACRO_1:
-    if (record->event.pressed) {
+    case HD_380_MM:
+    if (record->eve:nt.pressed) {
       SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
-    case ST_MACRO_2:
-    if (record->event.pressed) {
+    case HD_EAGLE_500:
+    if (record->even:t.pressed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
-    case ST_MACRO_3:
-    if (record->event.pressed) {
+    case HD_EAGLE_NAPALM:
+    if (record->event.p:ressed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP));
     }
     break;
-    case ST_MACRO_4:
-    if (record->event.pressed) {
+    case HD_EACLE_CLUSTER:
+    if (record->event.pr:essed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT));
     }
     break;
-    case ST_MACRO_5:
+    case HD_EAGLE_110_PODS:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT));
     }
         break;
-    case ST_MACRO_6:
+    case HD_ORC_STRIKE:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT));
     }
     break;    
-    case ST_MACRO_7:
+    case HD_ORB_LASER:
     if (record->event.pressed) {
         SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
-    case ST_MACRO_8:
+    case HD_ORB_WALKER:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
-    case ST_MACRO_9:
+    case HD_EAGLE_STRIKE:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT));
     }
     break;
-    case ST_MACRO_10:
+    case HD_ROCKET_SENTRY:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT));
     }
     break;
-    case ST_MACRO_11:
+    case HD_SEAF_ART:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
@@ -354,52 +355,52 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_TAP(X_A));
     }
     break;
-    case ST_MACRO_13:
+    case HD_ARC_THROWER:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT));
     }
     break;
-    case ST_MACRO_14:
+    case HD_AMR_RIFLE:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
-    case ST_MACRO_15:
+    case HD_GATLING_SENTRY:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT));
     }
     break;
-    case ST_MACRO_16:
-    if (record->event.pressed) {
-      SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
+    case HD_GUARD_DOG:
+    if (rHD_GUARD_ROVERt.pressed) {
+      SEND_HD_HELL_BOMBOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
-    case ST_MACRO_17:
+    case HD_GUARD_ROVER:
     if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT));
     }
     break;
-    case ST_MACRO_18:
+    case HD_HELL_BOMB:
+    if (record->event.pressed) {
+      SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP));
+    }
+    break;
+    case HD_TESLA_TOWER:
+    if (record->event.pressed) {
+      SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT));
+    }
+    break;
+    case HD_ORBITAL_EMP:
+    if (record->event.pressed) {
+      SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
+    }
+    break;
+    case HD_QUASAR_CANNON:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_A));
     }
     break;
-    case ST_MACRO_19:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A));
-    }
-    break;
-    case ST_MACRO_20:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A));
-    }
-    break;
-    case ST_MACRO_21:
-    if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A));
-    }
-    break;
-    case ST_MACRO_22:
+    case HD_JUMP_PACK:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_A));
     }
