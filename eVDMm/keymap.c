@@ -239,8 +239,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
-      register_code(KC_LCTL);
-        wait_ms(80);
+    register_code(KC_LCTL);
+        wait_ms(200);
         tap_code(KC_RIGHT);
         wait_ms(100);
         tap_code(KC_RIGHT);
@@ -252,12 +252,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code(KC_RIGHT);
         wait_ms(100);
         tap_code(KC_DOWN);
-        unregister_code(KC_LCTL);
+    unregister_code(KC_LCTL);
     }
     break;
     case ST_MACRO_1:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_RIGHT) SS_TAP(X_DOWN) SS_TAP(X_UP) SS_TAP(X_UP) SS_TAP(X_LEFT) SS_TAP(X_DOWN) SS_TAP(X_DOWN));
+      SEND_STRING(SS_TAP(X_RIGHT) SS_DELAY(50) SS_TAP(X_DOWN) SS_DELAY(50) SS_TAP(X_UP) SS_DELAY(50) SS_TAP(X_UP) SS_DELAY(50) SS_TAP(X_LEFT) SS_DELAY(50) SS_TAP(X_DOWN) SS_DELAY(50) SS_TAP(X_DOWN));
     }
     break;
     case ST_MACRO_2:
@@ -283,7 +283,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ST_MACRO_6:
     if (record->event.pressed) {
         register_code(KC_LCTL);
-        wait_ms(80);
+        wait_ms(200);
         tap_code(KC_RIGHT);
         wait_ms(100);
         tap_code(KC_DOWN);
