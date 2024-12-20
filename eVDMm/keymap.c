@@ -269,7 +269,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-        register_code(KC_LCTRL);
+        register_code(KC_LCTL);
         tap_code(KC_RIGHT);
         wait_ms(10);
         tap_code(KC_DOWN);
@@ -279,7 +279,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         tap_code(KC_RIGHT);
         wait_ms(10);
         tap_code(KC_DOWN);
-        unregister_code(KC_LCTRL);
+        unregister_code(KC_LCTL);
     }
     break;
     case ST_MACRO_7:
