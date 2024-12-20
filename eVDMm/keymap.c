@@ -38,7 +38,7 @@ enum custom_keycodes {
   ST_MACRO_26,
   ST_MACRO_27,
   ST_MACRO_28,
-  ST_MACRO_39,
+  ST_MACRO_29,
   ST_MACRO_30,
   ST_MACRO_31,
   ST_MACRO_32,
