@@ -402,7 +402,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case HD_JUMP_PACK:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_A));
+      SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP));
     }
     break;
     case ST_MACRO_23:
