@@ -127,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_moonlander(
     KC_TRANSPARENT, ST_MACRO_0,     ST_MACRO_1,     ST_MACRO_2,     ST_MACRO_3,     ST_MACRO_4,     ST_MACRO_5,                                 KC_HOME,        KC_TRANSPARENT, TD(DANCE_46),   TD(DANCE_47),   TD(DANCE_48),   KC_TRANSPARENT, KC_TRANSPARENT, 
-    ST_MACRO_6,     ST_MACRO_7,     ST_MACRO_G,     ST_MACRO_8,     ST_MACRO_9,     ST_MACRO_10,    KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_I,           KC_O,           KC_P,           KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, 
+    ST_MACRO_6,     ST_MACRO_7,     ST_MACRO_8,     ST_MACRO_9,     ST_MACRO_9,     ST_MACRO_10,    KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_I,           KC_O,           KC_P,           KC_LBRC,        KC_RBRC,        KC_TRANSPARENT, 
     KC_TRANSPARENT, ST_MACRO_11,    ST_MACRO_12,    ST_MACRO_13,    ST_MACRO_14,    KC_TRANSPARENT, KC_TRANSPARENT,                                                                 KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       KC_TRANSPARENT, KC_BSLS,        
     KC_TRANSPARENT, ST_MACRO_15,    ST_MACRO_16,    ST_MACRO_17,    ST_MACRO_18,    KC_TRANSPARENT,                                 KC_M,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RIGHT_SHIFT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_B,           KC_DOWN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -268,14 +268,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT));
     }
         break;
+    case ST_MACRO_6:
+    if (record->event.pressed) {
+      SEND_STRING(SS_RCTL(SS_TAP(X_A)) SS_DELAY(100) SS_LCTL(SS_TAP(X_B)));
+    }
+    break;    
     case ST_MACRO_7:
     if (record->event.pressed) {
         SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
-    }
-    break;
-    case ST_MACRO_G:
-    if (record->event.pressed) {
-      SEND_STRING(SS_RCTL(SS_TAP(X_A)) SS_DELAY(100) SS_LCTL(SS_TAP(X_B)));
     }
     break;
     case ST_MACRO_8:
