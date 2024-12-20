@@ -217,7 +217,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TO(3)),
     COMBO(combo1, TO(0)),
     COMBO(callAMR, HD_AMR_RIFLE),
-    COMBO(callAutocannon, ST_MACRO_1),
+    COMBO(callAutocannon, ST_MACRO_12),
     COMBO(combo4, HD_120_MM),
     COMBO(combo5, HD_120_MM),
     COMBO(combo6, HD_EAGLE_500),
