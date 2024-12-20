@@ -234,7 +234,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo17, HD_GATLING_SENTRY),
     COMBO(combo18, HD_GUARD_DOG),
     COMBO(combo19, HD_GUARD_ROVER),
-    COMBO(combo20, SHD_HELL_BOMB,
+    COMBO(combo20, SHD_HELL_BOMB),
     COMBO(combo21, HD_TESLA_TOWER),
     COMBO(combo22, HD_ORBITAL_EMP),
     COMBO(combo23, KC_TRANSPARENT),
