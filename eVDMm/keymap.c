@@ -277,9 +277,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_5:
     if (record->event.pressed) {
-      SEND_STRING(SS_RCTL(SS_TAP(X_A)) SS_DELAY(100) SS_LCTL(SS_TAP(X_B)));
+      SEND_STRING(SS_TAP(X_UP) SS_DELAY(60) SS_TAP(X_RIGHT) SS_DELAY(60) SS_TAP(X_UP) SS_DELAY(60) SS_TAP(X_LEFT));
     }
-    break;
+        break;
     case ST_MACRO_6:
     if (record->event.pressed) {
         register_code(KC_LCTL);
