@@ -221,7 +221,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo5, ST_MACRO_1),
     COMBO(combo6, ST_MACRO_2),
     COMBO(combo7, ST_MACRO_9),
-    COMBO(combo8, ST_MACRO_),
+    COMBO(combo8, ST_MACRO_10),
     COMBO(combo9, ST_MACRO_4),
     COMBO(combo10, ST_MACRO_3),
     COMBO(combo11, ST_MACRO_5),
