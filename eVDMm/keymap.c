@@ -217,6 +217,7 @@ const uint16_t PROGMEM C_HD_MACHINE_GUN[] = { KC_F, KC_A, COMBO_END};
 const uint16_t PROGMEM C_HD_JUMP_PACK[] = { KC_V, KC_A, COMBO_END};
 const uint16_t PROGMEM C_HD_HELL_BOMB[] = { KC_H, KC_B, COMBO_END};
 const uint16_t PROGMEM C_HD_REINFORCE[] = { KC_1, KC_2, KC_3, COMBO_END};
+const uint16_t PROGMEM C_HD_RESUPPLY[] = { KC_R, KC_E, KC_S, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TO(3)),
@@ -246,6 +247,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(C_HD_JUMP_PACK, HD_JUMP_PACK),
     COMBO(C_HD_HELL_BOMB, HD_HELL_BOMB),
     COMBO(C_HD_REINFORCE, HD_REINFORCE),
+    COMBO(C_HD_RESUPPLY, HD_RESUPPLY),
     
 };
 
@@ -432,6 +434,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP));
     }
     break;
+    case HD_RESUPPLY:
+    if (record->event.pressed) {
+        SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT));
+    }
     case ST_MACRO_23:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_B)) SS_DELAY(100) SS_TAP(X_1));
