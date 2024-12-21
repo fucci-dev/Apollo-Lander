@@ -298,22 +298,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
     case HD_380_MM:
-    if (record->eve:nt.pressed) {
+    if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
     case HD_EAGLE_500:
-    if (record->even:t.pressed) {
+    if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
     case HD_EAGLE_NAPALM:
-    if (record->event.p:ressed) {
+    if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP));
     }
     break;
     case HD_EACLE_CLUSTER:
-    if (record->event.pr:essed) {
+    if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT));
     }
     break;
@@ -373,7 +373,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     break;
     case HD_GUARD_DOG:
-    if (rHD_GUARD_ROVERt.pressed) {
+    if (record->event.pressed) {
       SEND_STRING(SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_LEFT) SS_DELAY(25) SS_UP(X_LEFT) SS_DELAY(55) SS_DOWN(X_UP) SS_DELAY(25) SS_UP(X_UP) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_DOWN) SS_DELAY(25) SS_UP(X_DOWN));
     }
     break;
