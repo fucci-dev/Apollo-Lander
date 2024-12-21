@@ -4,7 +4,7 @@
 */
 
 #undef DEBOUNCE
-#define DEBOUNCE 2
+#define DEBOUNCE 5
 
 #undef TAPPING_TERM
 #define TAPPING_TERM 145
@@ -17,7 +17,7 @@
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define CAPS_LOCK_STATUS
 #define USB_POLLING_INTERVAL_MS 10
-#define SERIAL_NUMBER "eVDMm/jqEXe"
+#define SERIAL_NUMBER "eVDMm/0bl6x"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 27
 
