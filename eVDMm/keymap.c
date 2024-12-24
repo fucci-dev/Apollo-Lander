@@ -258,17 +258,7 @@ void keyboard_post_init_user(void) {
   rgb_matrix_enable();
 }
 
-static bool bounce = false;
-static bool color_state = false;
-static uint16_t last_toggle_time = 0;
 
-void matrix_scan_user(void) {
-    static uint8_t test_idx = 0;
-    rgb_matrix_set_color_all(0,0,0);
-    rgb_matrix_set_color(test_idx, 255, 255, 255);
-    test_idx = (test_idx + 1) % RGB_MATRIX_LED_COUNT;
-    wait_ms(250);
-}
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [6] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {50,153,244}, {207,250,217}, {136,255,255}, {136,255,255}, {188,255,255}, {0,0,0}, {207,250,217}, {136,255,255}, {136,255,255}, {136,255,255}, {0,0,0}, {207,250,217}, {14,255,255}, {14,255,255}, {14,255,255}, {0,0,0}, {207,250,217}, {14,255,255}, {14,255,255}, {14,255,255}, {0,0,0}, {207,250,217}, {136,255,255}, {136,255,255}, {136,255,255}, {207,250,217}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {136,255,255}, {136,255,255}, {0,0,0}, {0,0,0}, {207,250,217}, {207,250,217}, {0,0,255}, {0,0,0}, {0,183,238}, {207,250,217}, {0,0,0}, {14,255,255}, {136,255,255}, {0,183,238}, {207,250,217}, {14,255,255}, {14,255,255}, {0,0,0}, {0,0,0}, {207,250,217}, {0,0,0}, {14,255,255}, {207,250,217}, {0,0,0}, {207,250,217}, {0,0,0}, {0,0,0}, {0,0,0}, {207,250,217}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
@@ -292,8 +282,20 @@ void set_layer_color(int layer) {
   }
 }
 
+static bool bounce = false;
+static bool color_state = false;
+static uint16_t last_toggle_time = 0;
+
+void matrix_scan_user(void) {
+    static uint8_t test_idx = 0;
+    rgb_matrix_set_color_all(0,0,0);
+    rgb_matrix_set_color(test_idx, 255, 255, 255);
+    test_idx = (test_idx + 1) % RGB_MATRIX_LED_COUNT;
+    wait_ms(250);
+}
+
 bool rgb_matrix_indicators_user(void) {
-  if (rawhid_state.rgb_control) {
+  /*if (rawhid_state.rgb_control) {
       return false;
   }
   if (keyboard_config.disable_layer_led) { return false; }
@@ -307,7 +309,7 @@ bool rgb_matrix_indicators_user(void) {
     break;
   }
   return true;
-}
+*/}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
