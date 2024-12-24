@@ -480,7 +480,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case LOCK_COMBO:
     if (record->event.pressed) {
-        SEND_STRING("a\\5HR=skvKK\\[@tn-7`<" SS_TAP(X_ENTER));
+        SEND_STRING("a\\5HR=skvKK\\[@Tn-7`<" SS_TAP(X_ENTER));
     }
 
     case RGB_SLD:
