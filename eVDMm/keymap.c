@@ -53,7 +53,7 @@ enum custom_keycodes {
   ST_MACRO_35,
   ST_MACRO_36,
   ST_MACRO_37,
-  LED_BOUNCE,
+  LED_TOG_KEY,
 };
 
 
@@ -140,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_AT,          KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_H,                                                                           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       KC_TRANSPARENT, KC_BSLS,        
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RIGHT_SHIFT, KC_LEFT_CTRL,   
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_B,           KC_DOWN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    LED_BOUNCE, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_LEFT_ALT,    TD(DANCE_46),   KC_SPACE
+    TO(LED_L), KC_TRANSPARENT, KC_TRANSPARENT,                 KC_LEFT_ALT,    TD(DANCE_46),   KC_SPACE
   ),
   [4] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
@@ -190,6 +190,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
+  [LED_L] = LAYOUT_moonlander(
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+        TO(0), LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+                                               LED_TOG_KEY, LED_TOG_KEY,
+                                                           LED_TOG_KEY,
+                                     LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+                    LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+                                 LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY,
+        LED_TOG_KEY, LED_TOG_KEY,
+        LED_TOG_KEY,
+        LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY
+    )
 };
 const uint16_t PROGMEM combo0[] = { KC_RIGHT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_LEFT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
@@ -576,6 +595,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             rgblight_mode(1);
             rgblight_sethsv(152,255,255);
         }
+        return false;
+    case LED_TOG_KEY:
+            if (record->event.pressed) {
+                // Get key position
+                uint8_t row = record->event.key.row;
+                uint8_t col = record->event.key.col;
+                
+                // Toggle state
+                led_states[row][col] = !led_states[row][col];
+                
+                // Set LED color
+                if (led_states[row][col]) {
+                    rgb_matrix_set_color(record->event.key.row * MATRIX_COLS + record->event.key.col, 255, 255, 255); // White
+                } else {
+                    rgb_matrix_set_color(record->event.key.row * MATRIX_COLS + record->event.key.col, 0, 0, 0); // Off
+                }
+            }
         return false;
   }
   return true;
