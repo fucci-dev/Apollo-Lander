@@ -267,7 +267,7 @@ void matrix_scan_user(void) {
     rgb_matrix_set_color_all(0,0,0);
     rgb_matrix_set_color(test_idx, 255, 255, 255);
     test_idx = (test_idx + 1) % RGB_MATRIX_LED_COUNT;
-    wait_ms(750);
+    wait_ms(250);
 }
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
