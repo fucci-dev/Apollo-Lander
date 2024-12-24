@@ -2,7 +2,6 @@
 #include "version.h"
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
-#define BOUNCE_INTERVAL 500
 
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
@@ -301,20 +300,9 @@ void set_layer_color(int layer) {
   }
 }
 
-static bool bounce = false;
-static bool color_state = false;
-static uint16_t last_toggle_time = 0;
-
-void matrix_scan_user(void) {
-    static uint8_t test_idx = 0;
-    rgb_matrix_set_color_all(0,0,0);
-    rgb_matrix_set_color(test_idx, 255, 255, 255);
-    test_idx = (test_idx + 1);
-    wait_ms(25);
-}
 
 bool rgb_matrix_indicators_user(void) {
-  /*if (rawhid_state.rgb_control) {
+  if (rawhid_state.rgb_control) {
       return false;
   }
   if (keyboard_config.disable_layer_led) { return false; }
@@ -323,11 +311,11 @@ bool rgb_matrix_indicators_user(void) {
       set_layer_color(6);
       break;
    default:
-    //if (rgb_matrix_get_flags() == LED_FLAG_NONE)
-      //rgb_matrix_set_color_all(0, 0, 0);
+    if (rgb_matrix_get_flags() == LED_FLAG_NONE)
+      rgb_matrix_set_color_all(0, 0, 0);
     break;
   }
-*/  return true;
+  return true;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -546,20 +534,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_TAP(X_BSLS) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(55) SS_TAP(X_MS_BTN1));
     }
     break;
-
-    case LED_BOUNCE:
-        if (record->event.pressed) {
-            bounce = !bounce;
-
-            if (!bounce) {
-                rgb_matrix_set_color(0, 0, 0, 0);
-            } else {
-                last_toggle_time = timer_read();
-                color_state = false;
-                rgb_matrix_set_color(0, 255, 255, 255);
-            }
-        }
-        return false;
 
     case RGB_SLD:
         if (rawhid_state.rgb_control) {
