@@ -2,6 +2,7 @@
 #include "version.h"
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
+#define BOUNCE_INTERVAL 500
 
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
@@ -106,6 +107,8 @@ enum tap_dance_codes {
   DANCE_45,
   DANCE_46,
 };
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_ESCAPE,      TD(DANCE_0),    TD(DANCE_1),    TD(DANCE_2),    TD(DANCE_3),    TD(DANCE_4),    KC_BSPC,                                        KC_DELETE,      TD(DANCE_23),   TD(DANCE_24),   TD(DANCE_25),   TD(DANCE_26),   TD(DANCE_27),   KC_BSPC,        
@@ -255,6 +258,26 @@ void keyboard_post_init_user(void) {
   rgb_matrix_enable();
 }
 
+static bool bounce = false;
+static bool color_state = false;
+static uint16_t last_toggle_time = 0;
+
+void matrix_scan_user(void) {
+    if (bounce) {
+        uint16_t elapsed = timer_elapsed(last_toggle_time);
+
+        if (elapsed > BOUNCE_INTERVAL) {
+            color_state = !color_state
+
+            if (color_state) {
+                rgb_matrix_set_color(42, 0, 0, 0);
+            } else {
+                rgb_matrix_set_color(42, 255, 0, 0);
+            }
+            last_toggle_time = timer_read();
+        }
+    }
+}
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
     [6] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {50,153,244}, {207,250,217}, {136,255,255}, {136,255,255}, {188,255,255}, {0,0,0}, {207,250,217}, {136,255,255}, {136,255,255}, {136,255,255}, {0,0,0}, {207,250,217}, {14,255,255}, {14,255,255}, {14,255,255}, {0,0,0}, {207,250,217}, {14,255,255}, {14,255,255}, {14,255,255}, {0,0,0}, {207,250,217}, {136,255,255}, {136,255,255}, {136,255,255}, {207,250,217}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {136,255,255}, {136,255,255}, {0,0,0}, {0,0,0}, {207,250,217}, {207,250,217}, {0,0,255}, {0,0,0}, {0,183,238}, {207,250,217}, {0,0,0}, {14,255,255}, {136,255,255}, {0,183,238}, {207,250,217}, {14,255,255}, {14,255,255}, {0,0,0}, {0,0,0}, {207,250,217}, {0,0,0}, {14,255,255}, {207,250,217}, {0,0,0}, {207,250,217}, {0,0,0}, {0,0,0}, {0,0,0}, {207,250,217}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
