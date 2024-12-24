@@ -53,6 +53,7 @@ enum custom_keycodes {
   ST_MACRO_36,
   ST_MACRO_37,
   LED_TOG_KEY,
+  LOCK_COMBO
 };
 
 
@@ -177,6 +178,7 @@ const uint16_t PROGMEM C_HD_JUMP_PACK[] = { KC_V, KC_A, COMBO_END};
 const uint16_t PROGMEM C_HD_HELL_BOMB[] = { KC_H, KC_B, COMBO_END};
 const uint16_t PROGMEM C_HD_REINFORCE[] = { KC_1, KC_2, KC_3, COMBO_END};
 const uint16_t PROGMEM C_HD_RESUPPLY[] = { KC_R, KC_E, KC_S, COMBO_END};
+const uint16_t PROGMEM LOCKCOMBO[] = { KC_P, KC_B, KC_Q, KC_N, COMBO_END}
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TO(9)),
@@ -207,6 +209,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(C_HD_HELL_BOMB, HD_HELL_BOMB),
     COMBO(C_HD_REINFORCE, HD_REINFORCE),
     COMBO(C_HD_RESUPPLY, HD_RESUPPLY),
+    COMBO(LOCKCOMBO, LOCK_COMBO),
     
 };
 
@@ -475,6 +478,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_TAP(X_BSLS) SS_DELAY(100) SS_TAP(X_N) SS_DELAY(55) SS_TAP(X_MS_BTN1));
     }
     break;
+    case LOCK_COMBO:
+    if (record->event.pressed) {
+        SEND_STRING("a\\5HR=skvKK\\[@tn-7`<" SS_TAP(X_ENTER));
+    }
 
     case RGB_SLD:
         if (rawhid_state.rgb_control) {
