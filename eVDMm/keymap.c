@@ -270,9 +270,9 @@ void matrix_scan_user(void) {
             color_state = !color_state;
 
             if (color_state) {
-                rgb_matrix_set_color(42, 0, 0, 0);
+                rgb_matrix_set_color(0, 0, 0, 0);
             } else {
-                rgb_matrix_set_color(42, 255, 0, 0);
+                rgb_matrix_set_color(0, 255, 255, 255);
             }
             last_toggle_time = timer_read();
         }
@@ -540,11 +540,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             bounce = !bounce;
 
             if (!bounce) {
-                rgb_matrix_set_color(42, 0, 0, 0);
+                rgb_matrix_set_color(0, 0, 0, 0);
             } else {
                 last_toggle_time = timer_read();
                 color_state = false;
-                rgb_matrix_set_color(42, 255, 0, 0);
+                rgb_matrix_set_color(0, 255, 255, 255);
             }
         }
         return false;
