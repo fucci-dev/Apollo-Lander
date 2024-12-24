@@ -267,7 +267,7 @@ void matrix_scan_user(void) {
         uint16_t elapsed = timer_elapsed(last_toggle_time);
 
         if (elapsed > BOUNCE_INTERVAL) {
-            color_state = !color_state
+            color_state = !color_state;
 
             if (color_state) {
                 rgb_matrix_set_color(42, 0, 0, 0);
