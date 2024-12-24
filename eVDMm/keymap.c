@@ -263,20 +263,11 @@ static bool color_state = false;
 static uint16_t last_toggle_time = 0;
 
 void matrix_scan_user(void) {
-    if (bounce) {
-        uint16_t elapsed = timer_elapsed(last_toggle_time);
-
-        if (elapsed > BOUNCE_INTERVAL) {
-            color_state = !color_state;
-
-            if (color_state) {
-                rgb_matrix_set_color(0, 0, 0, 0);
-            } else {
-                rgb_matrix_set_color(0, 255, 255, 255);
-            }
-            last_toggle_time = timer_read();
-        }
-    }
+    static uint8_t test_idx = 0;
+    rgb_matrix_set_color_all(0,0,0);
+    rgb_matrix_set_color(test_idx, 255, 255, 255);
+    test_idx = (test_idx + 1) % RGB_MATRIX_LED_COUNT;
+    wait_ms(750);
 }
 
 const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
@@ -311,8 +302,8 @@ bool rgb_matrix_indicators_user(void) {
       set_layer_color(6);
       break;
    default:
-    if (rgb_matrix_get_flags() == LED_FLAG_NONE)
-      rgb_matrix_set_color_all(0, 0, 0);
+    //if (rgb_matrix_get_flags() == LED_FLAG_NONE)
+      //rgb_matrix_set_color_all(0, 0, 0);
     break;
   }
   return true;
