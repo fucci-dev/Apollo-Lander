@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-#ifndef SNAKE_H
-#define SNAKE_H
-
-void snakeMovement();
-int 
-=======
 #ifndef SNAKE_GAME_H
 #define SNAKE_GAME_H
 
@@ -50,4 +43,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record);
 void matrix_scan_user(void);
 
 #endif
->>>>>>> main-2
