@@ -178,7 +178,7 @@ const uint16_t PROGMEM C_HD_JUMP_PACK[] = { KC_V, KC_A, COMBO_END};
 const uint16_t PROGMEM C_HD_HELL_BOMB[] = { KC_H, KC_B, COMBO_END};
 const uint16_t PROGMEM C_HD_REINFORCE[] = { KC_1, KC_2, KC_3, COMBO_END};
 const uint16_t PROGMEM C_HD_RESUPPLY[] = { KC_R, KC_E, KC_S, COMBO_END};
-const uint16_t PROGMEM LOCKCOMBO[] = { KC_P, KC_B, KC_Q, KC_N, COMBO_END}
+const uint16_t PROGMEM LOCKCOMBO[] = { KC_P, KC_B, KC_Q, KC_N, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TO(9)),
