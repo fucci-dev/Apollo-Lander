@@ -208,7 +208,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LED_TOG_KEY, LED_TOG_KEY,
         LED_TOG_KEY,
         LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY
-    )
+    ),
 };
 const uint16_t PROGMEM combo0[] = { KC_RIGHT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_LEFT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
