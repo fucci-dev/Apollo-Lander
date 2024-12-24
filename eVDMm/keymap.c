@@ -308,8 +308,8 @@ bool rgb_matrix_indicators_user(void) {
       //rgb_matrix_set_color_all(0, 0, 0);
     break;
   }
-  return true;
-*/}
+*/  return true;
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
