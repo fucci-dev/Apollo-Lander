@@ -181,7 +181,7 @@ const uint16_t PROGMEM C_HD_RESUPPLY[] = { KC_R, KC_E, KC_S, COMBO_END};
 const uint16_t PROGMEM LOCKCOMBO[] = { KC_P, KC_B, KC_Q, KC_N, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
-    COMBO(combo0, TO(9)),
+    COMBO(combo0, TO(3)),
     COMBO(combo1, TO(0)),
     COMBO(C_HD_AMR_RIFLE, HD_AMR_RIFLE),
     COMBO(C_HD_AUTO_CANNON, HD_AUTO_CANNON),
