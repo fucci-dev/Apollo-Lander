@@ -306,7 +306,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case HD_ORB_AIRBURST:
     if (record->event.pressed) {
-        SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_TAP(X_MS_BTN1));
+        SEND_STRING(SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55) SS_DOWN(X_RIGHT) SS_DELAY(25) SS_UP(X_RIGHT) SS_DELAY(55));
     }
     break;
     case HD_ORB_WALKER:
