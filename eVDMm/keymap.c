@@ -71,9 +71,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESCAPE,      KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,         
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        KC_RCBR,        KC_PIPE,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,         
     KC_TRANSPARENT, KC_HASH,        KC_DLR,         KC_LPRN,        KC_RPRN,        KC_GRAVE,       MU_TOGG,                                                                        KC_TRANSPARENT, KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_KP_PLUS,     KC_MINUS,       
-    KC_TRANSPARENT, KC_PERC,        KC_CIRC,        KC_LBRC,        KC_RBRC,        KC_TILD,                                        KC_AMPR,        KC_1,           KC_2,           KC_3,           MT(MOD_LCTL, KC_BSLS),KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_COMMA,       HSV_0_245_245,  HSV_74_255_206, HSV_152_255_255,RGB_MODE_FORWARD,                                                                                                KC_TRANSPARENT, KC_TRANSPARENT, KC_DOT,         KC_0,           KC_EQUAL,       KC_LEFT_ALT,    
-    RGB_VAD,        KC_TRANSPARENT, KC_TRANSPARENT,                 RGB_SLD,        KC_TRANSPARENT, RGB_HUI
+    KC_TRANSPARENT, KC_PERC,        KC_CIRC,        KC_LBRC,        KC_RBRC,        KC_TILD,                                        KC_LEFT,        KC_1,           KC_2,           KC_3,           MT(MOD_LCTL, KC_BSLS),KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_COMMA,       HSV_0_245_245,  HSV_74_255_206, HSV_152_255_255,RGB_MODE_FORWARD,                                                                                                KC_TRANSPARENT, KC_RIGHT,       KC_DOT,         KC_0,           KC_EQUAL,       KC_LEFT_ALT,    
+    RGB_VAD,        KC_TRANSPARENT, KC_TRANSPARENT,                 KC_KP_ENTER,    KC_TRANSPARENT, RGB_HUI
   ),
   [2] = LAYOUT_moonlander(
     AU_TOGG,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, QK_BOOT,        
@@ -85,10 +85,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_6,                                           KC_HOME,        KC_TRANSPARENT, KC_8,           KC_9,           KC_0,           KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_Y,                                           KC_TRANSPARENT, KC_I,           KC_O,           KC_P,           KC_LBRC,        KC_RBRC,        KC_HOME,        
-    KC_AT,          KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_H,                                                                           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       KC_DELETE,      KC_BSLS,        
+    KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           KC_Y,                                           KC_TRANSPARENT, KC_I,           KC_O,           KC_P,           KC_LBRC,        KC_DELETE,      KC_HOME,        
+    KC_AT,          KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_H,                                                                           KC_J,           KC_K,           KC_L,           KC_SCLN,        KC_QUOTE,       KC_RBRC,        KC_BSLS,        
     KC_TRANSPARENT, KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       KC_RIGHT_SHIFT, KC_LEFT_CTRL,   
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_B,           KC_DOWN,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_LEFT,        KC_UP,          KC_DOWN,        KC_RIGHT,       KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_LEFT_ALT,    TD(DANCE_5),    KC_SPACE
   ),
   [4] = LAYOUT_moonlander(
@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 const uint16_t PROGMEM combo0[] = { KC_RIGHT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
-const uint16_t PROGMEM combo1[] = { KC_LEFT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM combo1[] = { KC_LEFT_ALT, KC_HOME, COMBO_END};
 const uint16_t PROGMEM combo2[] = { KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM combo3[] = { KC_A, KC_C, COMBO_END};
 const uint16_t PROGMEM combo4[] = { KC_AT, KC_1, COMBO_END};
@@ -675,7 +675,7 @@ void dance_5_finished(tap_dance_state_t *state, void *user_data) {
     switch (dance_state[5].step) {
         case SINGLE_TAP: register_code16(KC_APPLICATION); break;
         case SINGLE_HOLD: register_code16(KC_APPLICATION); break;
-        case DOUBLE_TAP: register_code16(KC_APPLICATION); register_code16(KC_APPLICATION); break;
+        case DOUBLE_TAP: register_code16(KC_MS_BTN1); break;
         case DOUBLE_SINGLE_TAP: tap_code16(KC_APPLICATION); register_code16(KC_APPLICATION);
     }
 }
@@ -685,7 +685,7 @@ void dance_5_reset(tap_dance_state_t *state, void *user_data) {
     switch (dance_state[5].step) {
         case SINGLE_TAP: unregister_code16(KC_APPLICATION); break;
         case SINGLE_HOLD: unregister_code16(KC_APPLICATION); break;
-        case DOUBLE_TAP: unregister_code16(KC_APPLICATION); break;
+        case DOUBLE_TAP: unregister_code16(KC_MS_BTN1); break;
         case DOUBLE_SINGLE_TAP: unregister_code16(KC_APPLICATION); break;
     }
     dance_state[5].step = 0;
