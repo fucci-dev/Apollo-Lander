@@ -150,7 +150,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TO(0), LED_TOG_KEY, LED_TOG_KEY,                 LED_TOG_KEY, LED_TOG_KEY, LED_TOG_KEY
   ),
 };
-const uint16_t PROGMEM combo0[] = { KC_RIGHT_ALT, KC_SPACE, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM combo0[] = { KC_RIGHT_ALT, KC_SPACE, KC_LEFT, COMBO_END};
 const uint16_t PROGMEM combo1[] = { KC_LEFT_ALT, KC_HOME, COMBO_END};
 const uint16_t PROGMEM C_HD_AMR_RIFLE[] = { KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM C_HD_AUTO_CANNON[] = { KC_A, KC_C, COMBO_END};
