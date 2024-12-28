@@ -187,7 +187,6 @@ const uint16_t PROGMEM combo30[] = { KC_LEFT, KC_RIGHT, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TO(3)),
     COMBO(combo1, TO(0)),
-
     COMBO(C_HD_AMR_RIFLE, HD_AMR_RIFLE),
     COMBO(C_HD_AUTO_CANNON, HD_AUTO_CANNON),
     COMBO(C_HD_120_MM, HD_120_MM),
