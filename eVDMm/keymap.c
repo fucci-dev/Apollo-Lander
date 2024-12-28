@@ -60,9 +60,9 @@ enum tap_dance_codes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
     KC_ESCAPE,      KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           KC_BSPC,                                        KC_DELETE,      KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_BSPC,        
-    KC_GRAVE,       KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           LM(1,MOD_LALT),                                 TO(1),          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,        
+    OSL(2),         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           LM(1,MOD_LALT),                                 TO(1),          KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLS,        
     MT(MOD_LCTL, KC_TAB),KC_A,           KC_S,           KC_D,           KC_F,           KC_G,           KC_HYPR,                                                                        KC_MEH,         KC_H,           KC_J,           KC_K,           KC_L,           LT(2,KC_SCLN),  MT(MOD_LGUI, KC_QUOTE),
-    OSL(2),         KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RIGHT_SHIFT, 
+    KC_LEFT_SHIFT,  KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,                                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         MT(MOD_RCTL, KC_SLASH),KC_RIGHT_SHIFT, 
     MO(1),          KC_MS_BTN3,     KC_LEFT_GUI,    KC_UP,          KC_DOWN,        MT(MOD_LALT, KC_APPLICATION),                                                                                                TD(DANCE_2),    KC_LEFT,        KC_RIGHT,       KC_LBRC,        KC_RBRC,        KC_ENTER,       
     TD(DANCE_0),    KC_ENTER,       TD(DANCE_1),                    KC_RIGHT_ALT,   TD(DANCE_3),    KC_SPACE
   ),
@@ -168,6 +168,8 @@ const uint16_t PROGMEM combo25[] = { KC_H, KC_B, COMBO_END};
 const uint16_t PROGMEM combo26[] = { KC_1, KC_2, KC_3, COMBO_END};
 const uint16_t PROGMEM combo27[] = { KC_UP, KC_LEFT, COMBO_END};
 const uint16_t PROGMEM combo28[] = { KC_DOWN, KC_RIGHT, COMBO_END};
+const uint16_t PROGMEM combo29[] = { KC_UP, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM combo30[] = { KC_LEFT, KC_RIGHT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TO(3)),
@@ -199,6 +201,8 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo26, KC_TRANSPARENT),
     COMBO(combo27, KC_PAGE_UP),
     COMBO(combo28, KC_PGDN),
+    COMBO(combo29, KC_HOME),
+    COMBO(combo30, KC_END),
 };
 
 extern rgb_config_t rgb_matrix_config;
